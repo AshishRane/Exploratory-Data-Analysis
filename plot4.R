@@ -1,5 +1,5 @@
 #### Coursera - Data Science Specialization Course
-#### "Exploratory Data Analysis" - Week 1 -> Project 1 -> Plot 1
+#### "Exploratory Data Analysis" - Week 1 -> Project 1 -> Plot 4
 #### Date: 7 Nov 2014
 #### Author: Ashish Rane
 
@@ -13,10 +13,7 @@ url <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_co
 file <- "household_power_consumption"
 download.file(url, file, method = "curl")
 
-#Unzip the downloaded zip file
-unzip(file, exdir = ""/Users/ashishrane/Documents/MyDocs/Big Data/Data Science/Coursera/Data Science/Exploratory Data Analysis/Week 1/Week 1 Project"")
-
-# Read the file "household_power_consumption.txt" to a data frame
+#Unzip the downloaded zip file & read the file "household_power_consumption.txt" to a data frame
 
 epc <- fread("household_power_consumption.txt")
 
@@ -36,7 +33,7 @@ class(epc$Date)
 # Fetch the required data
 epc_subset <- epc[epc$Date=="2007-02-01" | epc$Date=="2007-02-02"]
 
-# Convert the fetched to a data frame
+# Convert the fetched subset to a data frame
 epc_subset <- data.frame(epc_subset)
 
 
@@ -56,7 +53,6 @@ png(filename = "plot4.png", width = 480, height = 480, units = "px", bg = "white
 
 par(mfrow = c(2,2), mar = c(14,6,2,2), cex=0.5)
 
-
 plot(epc_subset$Date_Time, epc_subset$Global_active_power, xlab = "", ylab = "Global Active Power", type = "n", xaxt = NULL)
 lines(epc_subset$Date_Time, epc_subset$Global_active_power, type="S")
 
@@ -69,14 +65,12 @@ lines(epc_subset$Date_Time, epc_subset$Sub_metering_2, col = "red", type="S")
 lines(epc_subset$Date_Time, epc_subset$Sub_metering_3, col = "blue", type="S")
 legend("topright", lty = c(1,1), lwd = c(1,1,1), col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
-
-
 plot(epc_subset$Date_Time, epc_subset$Global_reactive_power, xlab = "datetime", ylab = "Global_reactive_power", type = "n", xaxt = NULL)
 lines(epc_subset$Date_Time, epc_subset$Global_reactive_power, type="S")
 
 dev.off()
 
-
+######### End of script #########
 
 
 

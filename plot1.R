@@ -13,10 +13,7 @@ url <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_co
 file <- "household_power_consumption"
 download.file(url, file, method = "curl")
 
-#Unzip the downloaded zip file
-unzip(file, exdir = ""/Users/ashishrane/Documents/MyDocs/Big Data/Data Science/Coursera/Data Science/Exploratory Data Analysis/Week 1/Week 1 Project"")
-
-# Read the file "household_power_consumption.txt" to a data frame
+#Unzip the downloaded zip file & read the file "household_power_consumption.txt" to a data frame
 
 epc <- fread("household_power_consumption.txt")
 
@@ -36,7 +33,7 @@ class(epc$Date)
 # Fetch the required data
 epc_subset <- epc[epc$Date=="2007-02-01" | epc$Date=="2007-02-02"]
 
-# Convert the fetched to a data frame
+# Convert the fetched subset to a data frame
 epc_subset <- data.frame(epc_subset)
 
 
@@ -60,4 +57,4 @@ hist(epc_subset$Global_active_power, col = "red", main = "Global Active Power", 
 
 dev.off()
 
-
+######### End of script #########
